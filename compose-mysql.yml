@@ -1,0 +1,19 @@
+services:
+  db:
+    container_name: to_do_list-mysql-80
+    image: mysql:8.4
+    platform: linux/amd64
+    ports:
+      - "8036:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: app_db
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    #      MYSQL_ROOT_PASSWORD: yoo
+    #      MYSQL_USER: yoo
+    #      MYSQL_PASSWORD: yoo
+    volumes:
+      - ./dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
